@@ -1,0 +1,1197 @@
+/* ================================================
+   master.css  —  Vasileios Pappas Portfolio
+   Theme: Deep Navy & Gold (research-backed finance palette)
+   ================================================
+
+   TABLE OF CONTENTS
+   1.  Custom Properties (Design Tokens)
+   2.  CSS Reset & Base
+   3.  Typography
+   4.  Utility Classes
+   5.  Navigation
+   6.  Hero
+   7.  Sections (shared)
+   8.  About
+   9.  Skills
+   10. Projects
+   11. Experience (Timeline)
+   12. Education
+   13. Contact
+   14. Footer
+   15. Animations & Transitions
+   16. Media Queries (Responsive)
+   ================================================ */
+
+
+/* -----------------------------------------------
+   1. CUSTOM PROPERTIES (DESIGN TOKENS)
+   Navy + Gold hybrid: dark hero, warm cream body,
+   gold accent used like jewellery — sparingly.
+   ----------------------------------------------- */
+:root {
+  /* Core palette */
+  --color-navy:        #0b1e3d;   /* hero bg, footer, nav on scroll */
+  --color-navy-mid:    #122849;   /* card hover overlays */
+  --color-navy-light:  #1a3a5c;   /* decorative rings, borders on dark */
+
+  --color-gold:        #c9a84c;   /* primary accent — CTAs, markers, fills */
+  --color-gold-light:  #e8d49a;   /* hover tint, soft highlights */
+  --color-gold-dim:    rgba(201,168,76,0.15); /* subtle tints on dark bg */
+
+  --color-cream:       #faf8f4;   /* main body background */
+  --color-cream-alt:   #f2ede3;   /* alternate section background */
+  --color-cream-card:  #ffffff;   /* card surfaces */
+
+  --color-text:        #1a1a1a;   /* primary body text */
+  --color-text-muted:  #5a5a5a;   /* secondary text */
+  --color-text-light:  rgba(255,255,255,0.90); /* text on navy */
+  --color-text-dim:    rgba(255,255,255,0.50); /* muted text on navy */
+
+  --color-border:      #e0d9cc;   /* card borders on cream */
+  --color-border-dark: rgba(255,255,255,0.12); /* borders on navy */
+  --color-shadow:      rgba(11,30,61,0.10);    /* navy-tinted shadows */
+
+  /* Typography */
+  --font-sans:  'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono:  'Courier New', monospace;
+
+  /* Fluid font scale */
+  --text-xs:   clamp(0.7rem,  1.5vw, 0.75rem);
+  --text-sm:   clamp(0.8rem,  1.8vw, 0.875rem);
+  --text-base: clamp(0.95rem, 2vw,   1rem);
+  --text-lg:   clamp(1rem,    2.2vw, 1.125rem);
+  --text-xl:   clamp(1.1rem,  2.5vw, 1.25rem);
+  --text-2xl:  clamp(1.3rem,  3vw,   1.5rem);
+  --text-3xl:  clamp(1.6rem,  4vw,   2rem);
+  --text-hero: clamp(2.5rem,  7vw,   4.5rem);
+
+  /* Spacing */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  1.5rem;
+  --space-lg:  2.5rem;
+  --space-xl:  4rem;
+  --space-2xl: 6rem;
+
+  /* Layout */
+  --max-width:     1160px;
+  --nav-height:    64px;
+  --nav-height-sm: 52px;
+  --radius-sm:     6px;
+  --radius-md:     12px;
+  --radius-lg:     20px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 280ms ease;
+  --transition-slow: 450ms ease;
+}
+
+
+/* -----------------------------------------------
+   2. CSS RESET & BASE
+   ----------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+ul { list-style: none; }
+
+a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover { color: var(--color-navy); }
+
+img { max-width: 100%; display: block; }
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  background: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+
+/* -----------------------------------------------
+   3. TYPOGRAPHY
+   ----------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+h1 { font-size: var(--text-hero); }
+h2 { font-size: var(--text-3xl);  }
+h3 { font-size: var(--text-xl);   }
+
+p {
+  color: var(--color-text-muted);
+  max-width: 68ch;
+}
+
+
+/* -----------------------------------------------
+   4. UTILITY CLASSES
+   ----------------------------------------------- */
+.container {
+  width: 90%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  letter-spacing: 0.03em;
+  transition: background var(--transition-base),
+              color var(--transition-base),
+              transform var(--transition-fast),
+              box-shadow var(--transition-base);
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+/* Gold filled — main CTA */
+.btn-primary {
+  background: var(--color-gold);
+  color: var(--color-navy);
+  box-shadow: 0 2px 14px rgba(201,168,76,0.35);
+}
+
+.btn-primary:hover {
+  background: var(--color-gold-light);
+  color: var(--color-navy);
+  box-shadow: 0 4px 22px rgba(201,168,76,0.50);
+}
+
+/* Ghost — on dark (hero) bg */
+.btn-secondary {
+  background: transparent;
+  color: var(--color-gold);
+  border: 1.5px solid var(--color-gold);
+}
+
+.btn-secondary:hover {
+  background: var(--color-gold-dim);
+  color: var(--color-gold-light);
+}
+
+/* Ghost — on light (body) bg */
+.btn-secondary-light {
+  background: transparent;
+  color: var(--color-navy);
+  border: 1.5px solid var(--color-navy);
+}
+
+.btn-secondary-light:hover {
+  background: var(--color-navy);
+  color: var(--color-cream);
+}
+
+.btn-full {
+  width: 100%;
+  text-align: center;
+}
+
+
+/* -----------------------------------------------
+   5. NAVIGATION
+   ----------------------------------------------- */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--nav-height);
+  /* Transparent over the navy hero */
+  background: transparent;
+  transition: height var(--transition-base),
+              background var(--transition-base),
+              box-shadow var(--transition-base);
+}
+
+/* Once user scrolls: solid navy bar */
+#navbar.nav-scrolled {
+  height: var(--nav-height-sm);
+  background: rgba(11, 30, 61, 0.97);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.25);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 90%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+}
+
+/* Logo — gold serif mark */
+.nav-logo {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-gold);
+  letter-spacing: -0.01em;
+  transition: opacity var(--transition-fast);
+}
+
+.nav-logo:hover {
+  opacity: 0.8;
+  color: var(--color-gold);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.nav-link {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-dim);
+  transition: color var(--transition-fast);
+  position: relative;
+}
+
+/* Gold underline on hover / active */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-gold);
+  transition: width var(--transition-base);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-text-light);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Contact CTA pill */
+.nav-cta {
+  padding: 0.45rem 1.1rem;
+  border-radius: var(--radius-sm);
+  background: var(--color-gold);
+  color: var(--color-navy) !important;
+  font-weight: 600;
+}
+
+.nav-cta::after { display: none; }
+
+.nav-cta:hover {
+  background: var(--color-gold-light);
+  color: var(--color-navy) !important;
+  transform: translateY(-1px);
+}
+
+/* Hamburger — mobile only */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-gold);
+  border-radius: 2px;
+  transition: transform var(--transition-base), opacity var(--transition-fast);
+}
+
+
+/* -----------------------------------------------
+   6. HERO
+   Full navy background — the only truly dark section.
+   Gold accent, circular decorative rings.
+   ----------------------------------------------- */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: var(--nav-height);
+  background: var(--color-navy);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative concentric rings — purely visual, aria-hidden via CSS */
+#hero::before,
+#hero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  pointer-events: none;
+}
+
+#hero::before {
+  width: 600px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#hero::after {
+  width: 900px;
+  height: 900px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-content {
+  max-width: 780px;
+  padding-inline: var(--space-sm);
+  position: relative;  /* sit above ::before/::after rings */
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-xs);
+  max-width: none;
+}
+
+.hero-name {
+  font-family: var(--font-serif);
+  font-size: var(--text-hero);
+  color: var(--color-text-light);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-md);
+}
+
+.hero-tagline {
+  font-size: var(--text-lg);
+  color: var(--color-text-dim);
+  margin-bottom: var(--space-lg);
+  max-width: 55ch;
+  margin-inline: auto;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-xl);
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  width: 24px;
+  height: 40px;
+  border: 2px solid rgba(201,168,76,0.35);
+  border-radius: 12px;
+  margin-inline: auto;
+  position: relative;
+}
+
+.scroll-indicator span {
+  display: block;
+  width: 4px;
+  height: 8px;
+  background: var(--color-gold);
+  border-radius: 2px;
+  margin: 5px auto 0;
+  animation: scroll-bounce 1.8s ease infinite;
+}
+
+@keyframes scroll-bounce {
+  0%   { transform: translateY(0); opacity: 1; }
+  80%  { transform: translateY(12px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 0; }
+}
+
+
+/* -----------------------------------------------
+   7. SECTIONS (SHARED)
+   Body is warm cream. Alt sections use a slightly
+   deeper cream — gentle contrast, not harsh.
+   ----------------------------------------------- */
+.section {
+  padding-block: var(--space-2xl);
+  background: var(--color-cream);
+}
+
+.section-alt {
+  background: var(--color-cream-alt);
+}
+
+/* Section title with gold underline bar */
+.section-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  color: var(--color-navy);
+  margin-bottom: var(--space-xs);
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 48px;
+  background: var(--color-gold);
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+.section-subtitle {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-xl);
+  max-width: 55ch;
+}
+
+
+/* -----------------------------------------------
+   8. ABOUT
+   ----------------------------------------------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+  margin-top: var(--space-xl);
+}
+
+.about-image-wrap {
+  position: sticky;
+  top: calc(var(--nav-height) + var(--space-md));
+}
+
+/* Avatar placeholder — navy bg, gold initials */
+.about-image-placeholder {
+  width: 220px;
+  height: 220px;
+  border-radius: var(--radius-lg);
+  background: var(--color-navy);
+  border: 3px solid var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  color: var(--color-gold);
+  letter-spacing: -0.02em;
+  box-shadow: 0 12px 40px var(--color-shadow);
+}
+
+.about-text p {
+  margin-bottom: var(--space-md);
+}
+
+.about-text p:last-of-type {
+  margin-bottom: var(--space-lg);
+}
+
+/* Stat cards */
+.about-stats {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-navy);
+  border-radius: var(--radius-md);
+  min-width: 100px;
+  flex: 1;
+  box-shadow: 0 4px 20px var(--color-shadow);
+}
+
+.stat-number {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-gold);
+  line-height: 1;
+  font-family: var(--font-serif);
+}
+
+.stat-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+  text-align: center;
+}
+
+
+/* -----------------------------------------------
+   9. SKILLS
+   ----------------------------------------------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.skill-category {
+  background: var(--color-cream-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.skill-category:hover {
+  box-shadow: 0 8px 32px var(--color-shadow);
+  transform: translateY(-2px);
+}
+
+.skill-category-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-xs);
+}
+
+.skill-category-title {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-md);
+  color: var(--color-navy);
+}
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.skill-name {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* Track */
+.skill-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--color-cream-alt);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* Fill — navy to gold gradient — animated by JS */
+.skill-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--color-navy), var(--color-gold));
+  border-radius: 3px;
+  transition: width 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* -----------------------------------------------
+   10. PROJECTS
+   ----------------------------------------------- */
+.filter-tabs {
+  display: flex;
+  gap: var(--space-xs);
+  margin-block: var(--space-xl) var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.45rem 1.2rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 100px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: background var(--transition-fast),
+              color var(--transition-fast),
+              border-color var(--transition-fast);
+}
+
+.filter-btn:hover {
+  border-color: var(--color-gold);
+  color: var(--color-navy);
+}
+
+.filter-btn.active {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+  color: var(--color-gold);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.project-card {
+  background: var(--color-cream-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  transition: box-shadow var(--transition-base),
+              transform var(--transition-base);
+  /* Subtle left border accent */
+  border-left: 3px solid var(--color-gold);
+}
+
+.project-card:hover {
+  box-shadow: 0 12px 40px var(--color-shadow);
+  transform: translateY(-4px);
+}
+
+.project-card.hidden { display: none; }
+
+.project-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-tag {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  background: var(--color-navy);
+  padding: 3px 9px;
+  border-radius: 4px;
+}
+
+.project-icon-link {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.project-icon-link:hover {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.project-title {
+  font-size: var(--text-lg);
+  color: var(--color-navy);
+}
+
+.project-description {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  flex: 1;
+  max-width: none;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.tech-chip {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-navy);
+  background: var(--color-cream-alt);
+  border: 1px solid var(--color-border);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+
+/* -----------------------------------------------
+   11. EXPERIENCE (TIMELINE)
+   ----------------------------------------------- */
+.timeline {
+  position: relative;
+  margin-top: var(--space-xl);
+  padding-left: 2.5rem;
+}
+
+/* Vertical line — gold */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--color-gold), var(--color-border));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--space-xl);
+}
+
+.timeline-item:last-child { margin-bottom: 0; }
+
+/* Gold dot marker */
+.timeline-marker {
+  position: absolute;
+  left: -2.5rem;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  border: 3px solid var(--color-cream-alt);
+  box-shadow: 0 0 0 2px var(--color-gold);
+}
+
+.timeline-content {
+  background: var(--color-cream-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  transition: box-shadow var(--transition-base);
+}
+
+.timeline-content:hover {
+  box-shadow: 0 8px 28px var(--color-shadow);
+}
+
+.timeline-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.timeline-role {
+  font-size: var(--text-lg);
+  color: var(--color-navy);
+}
+
+.timeline-date {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-gold);
+  white-space: nowrap;
+}
+
+.timeline-company {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  font-weight: 500;
+  margin-bottom: var(--space-sm);
+}
+
+.timeline-bullets {
+  list-style: disc;
+  padding-left: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.timeline-bullets li {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+
+/* -----------------------------------------------
+   12. EDUCATION
+   ----------------------------------------------- */
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.edu-card {
+  display: flex;
+  gap: var(--space-md);
+  background: var(--color-cream-card);
+  border: 1px solid var(--color-border);
+  /* Top gold border bar — a strong visual anchor */
+  border-top: 3px solid var(--color-gold);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  align-items: flex-start;
+  transition: box-shadow var(--transition-base);
+}
+
+.edu-card:hover {
+  box-shadow: 0 8px 32px var(--color-shadow);
+}
+
+.edu-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.edu-degree {
+  font-size: var(--text-lg);
+  color: var(--color-navy);
+  margin-bottom: 4px;
+}
+
+.edu-institution {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: 4px;
+}
+
+.edu-date {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.edu-detail {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.cert-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.cert-list li {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-sm);
+  border-bottom: 1px dashed var(--color-border);
+  padding-bottom: var(--space-xs);
+}
+
+.cert-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.cert-year {
+  font-size: var(--text-xs);
+  color: var(--color-gold);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+
+/* -----------------------------------------------
+   13. CONTACT
+   ----------------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: var(--space-xl);
+  align-items: start;
+  margin-top: var(--space-xl);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+}
+
+.contact-icon {
+  font-size: var(--text-xl);
+  width: 2rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-navy);
+}
+
+.required { color: #c0392b; }
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.65rem 0.9rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  background: var(--color-cream-card);
+  transition: border-color var(--transition-fast),
+              box-shadow var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.18);
+}
+
+.form-group input.is-invalid,
+.form-group textarea.is-invalid {
+  border-color: #c0392b;
+  box-shadow: 0 0 0 3px rgba(192,57,43,0.10);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.field-error {
+  font-size: var(--text-xs);
+  color: #c0392b;
+  min-height: 1em;
+}
+
+.form-feedback {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  display: none;
+}
+
+.form-feedback.success {
+  background: #d5f0e4;
+  color: #1a5c3a;
+  display: block;
+}
+
+.form-feedback.error {
+  background: #fce8e6;
+  color: #7d2a22;
+  display: block;
+}
+
+
+/* -----------------------------------------------
+   14. FOOTER
+   Back to navy — bookends the page visually.
+   ----------------------------------------------- */
+#footer {
+  background: var(--color-navy);
+  padding-block: var(--space-lg);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-size: var(--text-sm);
+  max-width: none;
+  color: var(--color-text-dim);
+}
+
+.back-to-top {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-gold);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(201,168,76,0.35);
+  border-radius: 50%;
+  transition: background var(--transition-fast),
+              border-color var(--transition-fast);
+}
+
+.back-to-top:hover {
+  background: var(--color-gold);
+  color: var(--color-navy);
+  border-color: var(--color-gold);
+}
+
+
+/* -----------------------------------------------
+   15. ANIMATIONS & TRANSITIONS
+   ----------------------------------------------- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* -----------------------------------------------
+   16. MEDIA QUERIES
+   ----------------------------------------------- */
+@media (max-width: 64rem) {
+  .skills-grid    { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid  { grid-template-columns: repeat(2, 1fr); }
+  .about-grid     { grid-template-columns: 200px 1fr; gap: var(--space-lg); }
+}
+
+@media (max-width: 48rem) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-image-wrap {
+    position: static;
+    display: flex;
+    justify-content: center;
+  }
+  .contact-grid   { grid-template-columns: 1fr; }
+  .skills-grid    { grid-template-columns: 1fr; }
+  .timeline-header { flex-direction: column; gap: 2px; }
+}
+
+@media (max-width: 36rem) {
+  .nav-toggle { display: flex; }
+
+  .nav-links {
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    background: rgba(11, 30, 61, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    border-bottom: 1px solid var(--color-border-dark);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--transition-base), opacity var(--transition-base);
+  }
+
+  .nav-links.nav-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .projects-grid { grid-template-columns: 1fr; }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-stats { flex-direction: column; }
+}
