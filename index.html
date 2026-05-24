@@ -5,21 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Portfolio of Vasileios Pappas — Finance & Accounting Graduate"
+      content="Portfolio of V. Pappas — Finance & Technology Professional"
     />
     <title>Vasileios Pappas | Finance &amp; Accounting</title>
 
     <!-- Google Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;40;500;600;700&family=Playfair+Display:wght@700&display=swap"
       rel="stylesheet"
-    />
-
-    <!-- Favicon — inline SVG so no extra file is needed -->
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231c4ed8'/><text x='16' y='23' text-anchor='middle' font-family='Georgia,serif' font-size='15' font-weight='bold' fill='white'>VP</text></svg>"
     />
 
     <!-- Stylesheet -->
@@ -27,8 +20,169 @@
   </head>
 
   <body>
-    <!-- =============================================
-         NAVIGATION
-         Smart sticky navbar — shrinks + gains shadow on scroll.
-         Active section is highlighted via JS IntersectionObserver.
-    ============================================= -->
+    <nav id="navbar">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-logo">VP</a>
+        <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul id="nav-links" class="nav-links">
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#contact" class="nav-link nav-cta">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Hello, I'm</p>
+        <h1 class="hero-name">Vasileios Pappas</h1>
+        <p class="hero-tagline">Finance &amp; Technology Graduate &nbsp;-·@nbsp; Turning data into decisions</p>
+        <div class="hero-cta-group">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+        <div class="scroll-indicator" aria-hidden="true"><span></span></div>
+      </div>
+    </section>
+
+    <section id="about" class="section fade-in">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+          <div class="about-image-wrap">
+            <div class="about-image-placeholder" aria-label="Profile photo"><span>VP</span></div>
+          </div>
+          <div class="about-text">
+            <p>I'm a recently graduated Information Technology student with a specialisation in <strong>Finance &amp; FinTech</strong>.</p>
+            <p>My goal is to help organisations make smarter, faster decisions by building technology that bridges the gap between raw data and actionable insight.</p>
+            <p>Outside of work I'm an avid reader of macroeconomic literature, an amateur chess player, and a strong advocate for open-source software.</p>
+            <div class="about-stats">
+              <div class="stat-card"><span class="stat-number">3+</span><span class="stat-label">Years Experience</span></div>
+              <div class="stat-card"><span class="stat-number">12</span><span class="stat-label">Projects Completed</span></div>
+              <div class="stat-card"><span class="stat-number">5</span><span class="stat-label">Certifications</span></div>
+            </div>
+            <a href="assets/vasileios-pappas-cv.pdf" class="btn btn-primary" download>Download CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section section-alt fade-in">
+      <div class="container">
+        <h2 class="section-title">Skills &amp; Tools</h2>
+        <p class="section-subtitle">A blend of financial acumen and technical proficiency</p>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <div class="skill-category-icon">📊</div>
+            <h3 class="skill-category-title">Finance</h3>
+            <ul class="skill-list">
+              <li class="skill-item"><span class="skill-name">Financial Modelling</span><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></li>
+              <li class="skill-item"><span class="skill-name">Valuation &amp; DCF</span><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></li>
+              <li class="skill-item"><span class="skill-name">Risk Analysis</span><div class="skill-bar"><div class="skill-fill" data-width="80"></div></div></li>
+              <li class="skill-item"><span class="skill-name">Portfolio Management</span><div class="skill-bar"><div class="skill-fill" data-width="75"></div></div></li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <div class="skill-category-icon">💻</div>
+            <h3 class="skill-category-title">Technology</h3>
+            <ul class="skill-list">
+              <li class="skill-item"><span class="skill-name">HTML &amp; CSS</span><div class="skill-bar"><div class="skill-fill" data-width="92"></div></div></li>
+              <li class="skill-item"><span class="skill-name">JavaScript</span><div class="skill-bar"><div class="skill-fill" data-width="80"></div></div></li>
+              <li class="skill-item"><span class="skill-name">Python &amp; Pandas</span><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></li>
+              <li class="skill-item"><span class="skill-name">SQL</span><div class="skill-bar"><div class="skill-fill" data-width="78"></div></div></li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <div class="skill-category-icon">🛠</div>
+            <h3 class="skill-category-title">Tools</h3>
+            <ul class="skill-list">
+              <li class="skill-item"><span class="skill-name">Excel &amp; Power BI</span><div class="skill-bar"><div class="skill-fill" data-width="95"></div></div></li>
+              <li class="skill-item"><span class="skill-name">Bloomberg Terminal</span><div class="skill-bar"><div class="skill-fill" data-width="70"></div></div></li>
+              <li class="skill-item"><span class="skill-name">Git &amp; GitHub</span><div class="skill-bar"><div class="skill-fill" data-width="82"></div></div></li>
+              <li class="skill-item"><span class="skill-name">Tableau</span><div class="skill-bar"><div class="skill-fill" data-width="75"></div></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section fade-in">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">Selected work across finance, data, and web development</p>
+        <div class="filter-tabs">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="finance">Finance</button>
+          <button class="filter-btn" data-filter="data">Data</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+        </div>
+        <div class="projects-grid" id="projects-grid">
+          <article class="project-card" data-category="finance"><div class="project-card-header"><span class="project-tag">Finance</span><a href="https://github.com/vpappas" class="project-icon-link" target="_blank" rel="noopener noreferrer">&lt;/&gt;</a></div><h3 class="project-title">Stock Portfolio Optimiser</h3><p class="project-description">Python-based Markowitz mean-variance optimisation tool.</p><div class="project-tech"><span class="tech-chip">Python</span><span class="tech-chip">NumPy</span><span class="tech-chip">yfinance</span></div></article>
+          <article class="project-card" data-category="data"><div class="project-card-header"><span class="project-tag">Data</span><a href="https://github.com/vpappas" class="project-icon-link" target="_blank" rel="noopener noreferrer">&lt;/&gt;</a></div><h3 class="project-title">Macroeconomic Dashboard</h3><p class="project-description">Interactive Power BI dashboard visualising GDP, inflation, and unemployment.</p><div class="project-tech"><span class="tech-chip">Power BI</span><span class="tech-chip">SQL</span></div></article>
+          <article class="project-card" data-category="web"><div class="project-card-header"><span class="project-tag">Web</span><a href="https://github.com/vpappas" class="project-icon-link" target="_blank" rel="noopener noreferrer">&lt;/&gt;</a></div><h3 class="project-title">Expense Tracker App</h3><p class="project-description">Responsive single-page web app for personal budgeting.</p><div class="project-tech"><span class="tech-chip">HTML</span><span class="tech-chip">CSS</span><span class="tech-chip">JavaScript</span></div></article>
+          <article class="project-card" data-category="finance"><div class="project-card-header"><span class="project-tag">Finance</span><a href="https://github.com/vpappas" class="project-icon-link" target="_blank" rel="noopener noreferrer">&lt;/&gt;</a></div><h3 class="project-title">DCF Valuation Model</h3><p class="project-description">Fully dynamic Excel-based DCF model with sensitivity analysis and scenario toggles.</p><div class="project-tech"><span class="tech-chip">Excel</span><span class="tech-chip">VBA</span></div></article>
+          <article class="project-card" data-category="data"><div class="project-card-header"><span class="project-tag">Data</span><a href="https://github.com/vpappas" class="project-icon-link" target="_blank" rel="noopener noreferrer">&lt;/&gt;</a></div><h3 class="project-title">Credit Risk Predictor</h3><p class="project-description">Logistic regression and random forest models to predict loan default.</p><div class="project-tech"><span class="tech-chip">Python</span><span class="tech-chip">scikit-learn</span></div></article>
+          <article class="project-card" data-category="web"><div class="project-card-header"><span class="project-tag">Web</span><a href="https://github.com/vpappas" class="project-icon-link" target="_blank" rel="noopener noreferrer">&lt;/&gt;</a></div><h3 class="project-title">FinNews Aggregator</h3><p class="project-description">Lightweight news aggregator pulling headlines from finance RSS feeds.</p><div class="project-tech"><span class="tech-chip">JavaScript</span><span class="tech-chip">RSS API</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section section-alt fade-in">
+      <div class="container">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><div class="timeline-header"><h3 class="timeline-role">Junior Financial Analyst</h3><span class="timeline-date">Jan 2024 – Present</span></div><p class="timeline-company">Alpha Capital Group · Athens, Greece</p><ul class="timeline-bullets"><li>Built 15+ financial models for equity research on Greek and European mid-cap stocks</li><li>Automated weekly reporting in Python, reducing preparation time by 60%</li><li>Contributed to two M&amp;A due diligence processes</li></ul></div></div>
+          <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><div class="timeline-header"><h3 class="timeline-role">Finance Intern</h3><span class="timeline-date">Jun 2023 – Dec 2023</span></div><p class="timeline-company">National Bank of Greece · Athens</p><ul class="timeline-bullets"><li>Supported treasury desk with daily liquidity reporting and FX reconciliation</li><li>Developed a VBA macro saving 8 hours of monthly reporting</li><li>Completed internal credit risk training with distinction</li></ul></div></div>
+          <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><div class="timeline-header"><h3 class="timeline-role">Web Development Freelancer</h3><span class="timeline-date">Sep 2021 – May 2023</span></div><p class="timeline-company">Self-Employed – Remote</p><ul class="timeline-bullets"><li>Designed responsive websites for 8 small businesses</li><li>Delivered projects on time with a 5-star client rating</li></ul></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section fade-in">
+      <div class="container">
+        <h2 class="section-title">Education &amp; Certifications</h2>
+        <div class="edu-grid">
+          <div class="edu-card"><div class="edu-icon">🎓</div><div class="edu-body"><h3 class="edu-degree">BSc Information Technology &#122; Finance Track</h3><p class="edu-institution">Athens University of Economics and Business</p><p class="edu-date">Graduated: June 2023 | GPA: 8.6 / 10</p><p class="edu-detail">Thesis: <em>"Machine Learning Applications in Credit Scoring: A Comparative Study"</em></p></div></div>
+          <div class="edu-card"><div class="edu-icon">📜</div><div class="edu-body"><h3 class="edu-degree">Certifications</h3><ul class="cert-list"><li><strong>CFA Level I</strong> &#150; CFA Institute<span class="cert-year">2024</span></li><li><strong>Google Data Analytics</strong> &#150; Google / Coursera<span class="cert-year">2023</span></li><li><strong>Python for Finance</strong> &#150; Coursera<span class="cert-year">2023</span></li><li><strong>Power BI Desktop Specialist</strong> &#150; Microsoft<span class="cert-year">2022</span></li><li><strong>Bloomberg Market Concepts</strong> &#150; Bloomberg<span class="cert-year">2022</span></li></ul></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-alt fade-in">
+      <div class="container">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-subtitle">Open to opportunities in finance, FinTech, and data-driven roles</p>
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-item"><span class="contact-icon">✉</span><a href="mailto:billy.pappas02@gmail.com">billy.pappas02@gmail.com</a></div>
+            <div class="contact-item"><span class="contact-icon">📍</span><span>Athens, Greece</span></div>
+            <div class="contact-item"><span class="contact-icon">🔗 </span><a href="https://linkedin.com/in/vpappas" target="_blank" rel="noopener noreferrer">linkedin.com/in/vpappas</a></div>
+            <div class="contact-item"><span class="contact-icon">💾</span><a href="https://github.com/vpappas" target="_blank" rel="noopener noreferrer">github.com/vpappas</a></div>
+          </div>
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-group"><label for="name">Name <span class="required">*</span></label><input type="text" id="name" name="name" placeholder="Your full name" /><span class="field-error" id="name-error"></span></div>
+            <div class="form-group"><label for="email">Email <span class="required">*</span></label><input type="email" id="email" name="email" placeholder="your@email.com" /><span class="field-error" id="email-error"></span></div>
+            <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" name="subject" placeholder="What's this about?" /></div>
+            <div class="form-group"><label for="message">Message <span class="required">*</span></label><textarea id="message" name="message" rows="5" placeholder="Your message..."></textarea><span class="field-error" id="message-error"></span></div>
+            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+            <div id="form-feedback" class="form-feedback" role="alert"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer">
+      <div class="container footer-inner">
+        <p class="footer-copy">&copy; <span id="footer-year"></span> Vasileios Pappas. Crafted with HTML, CSS &amp; JavaScript.</p>
+        <a href="#hero" class="back-to-top" aria-label="Back to top">↑</a>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
