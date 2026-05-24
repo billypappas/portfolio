@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Portfolio of V. Pappas — Finance & Technology Professional"
+      content="Portfolio of Vasileios Pappas â Finance & Accounting Graduate"
     />
     <title>Vasileios Pappas | Finance &amp; Accounting</title>
 
     <!-- Google Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;40;500;600;700&family=Playfair+Display:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
       rel="stylesheet"
+    />
+
+    <!-- Favicon â inline SVG so no extra file is needed -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231c4ed8'/><text x='16' y='23' text-anchor='middle' font-family='Georgia,serif' font-size='15' font-weight='bold' fill='white'>VP</text></svg>"
     />
 
     <!-- Stylesheet -->
@@ -20,169 +27,643 @@
   </head>
 
   <body>
+    <!-- =============================================
+         NAVIGATION
+         Smart sticky navbar â shrinks + gains shadow on scroll.
+         Active section is highlighted via JS IntersectionObserver.
+    ============================================= -->
     <nav id="navbar">
       <div class="nav-inner">
         <a href="#hero" class="nav-logo">VP</a>
-        <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-          <span></span><span></span><span></span>
+
+        <!-- Hamburger toggle (mobile only) -->
+        <button
+          id="nav-toggle"
+          class="nav-toggle"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
+
         <ul id="nav-links" class="nav-links">
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#about"      class="nav-link">About</a></li>
+          <li><a href="#skills"     class="nav-link">Skills</a></li>
+          <li><a href="#projects"   class="nav-link">Projects</a></li>
           <li><a href="#experience" class="nav-link">Experience</a></li>
-          <li><a href="#education" class="nav-link">Education</a></li>
-          <li><a href="#contact" class="nav-link nav-cta">Contact</a></li>
+          <li><a href="#education"  class="nav-link">Education</a></li>
+          <li><a href="#contact"    class="nav-link nav-cta">Contact</a></li>
         </ul>
       </div>
     </nav>
 
+    <!-- =============================================
+         HERO SECTION
+    ============================================= -->
     <section id="hero">
       <div class="hero-content">
         <p class="hero-eyebrow">Hello, I'm</p>
         <h1 class="hero-name">Vasileios Pappas</h1>
-        <p class="hero-tagline">Finance &amp; Technology Graduate &nbsp;-·@nbsp; Turning data into decisions</p>
+        <p class="hero-tagline">
+          Finance &amp; Accounting Graduate &nbsp;Â·&nbsp; Risk Â· Analysis Â· Banking
+        </p>
         <div class="hero-cta-group">
           <a href="#projects" class="btn btn-primary">View My Work</a>
-          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+          <a href="#contact"  class="btn btn-secondary">Get in Touch</a>
+          <a href="vasileios-pappas-cv.pdf" download class="btn btn-secondary">Download CV</a>
         </div>
-        <div class="scroll-indicator" aria-hidden="true"><span></span></div>
+        <!-- Subtle scroll indicator -->
+        <div class="scroll-indicator" aria-hidden="true">
+          <span></span>
+        </div>
       </div>
     </section>
 
+    <!-- =============================================
+         ABOUT SECTION
+    ============================================= -->
     <section id="about" class="section fade-in">
       <div class="container">
         <h2 class="section-title">About Me</h2>
         <div class="about-grid">
+          <!-- Profile image placeholder â replace the div below with an <img> tag
+               once you have a photo: <img src="assets/photo.jpg" alt="Vasileios Pappas" /> -->
           <div class="about-image-wrap">
-            <div class="about-image-placeholder" aria-label="Profile photo"><span>VP</span></div>
-          </div>
-          <div class="about-text">
-            <p>I'm a recently graduated Information Technology student with a specialisation in <strong>Finance &amp; FinTech</strong>.</p>
-            <p>My goal is to help organisations make smarter, faster decisions by building technology that bridges the gap between raw data and actionable insight.</p>
-            <p>Outside of work I'm an avid reader of macroeconomic literature, an amateur chess player, and a strong advocate for open-source software.</p>
-            <div class="about-stats">
-              <div class="stat-card"><span class="stat-number">3+</span><span class="stat-label">Years Experience</span></div>
-              <div class="stat-card"><span class="stat-number">12</span><span class="stat-label">Projects Completed</span></div>
-              <div class="stat-card"><span class="stat-number">5</span><span class="stat-label">Certifications</span></div>
+            <div class="about-image-placeholder" aria-label="Profile photo">
+              <span>VP</span>
             </div>
-            <a href="assets/vasileios-pappas-cv.pdf" class="btn btn-primary" download>Download CV</a>
+          </div>
+
+          <div class="about-text">
+            <p>
+              I'm a recent graduate in <strong>Business Administration</strong>
+              with a specialisation in <strong>Finance &amp; Accounting</strong>
+              from the University of Piraeus. My academic background spans risk
+              management, banking, fixed income products, portfolio management,
+              behavioural finance, and quantitative methods.
+            </p>
+            <p>
+              My professional experience includes internal auditing at
+              <strong>Public Audit Services</strong> â a private-sector firm
+              providing audit services to public sector entities â where I
+              managed a portfolio of 21 hospital clients. I also fulfilled
+              my compulsory military service at the
+              <strong>Unified Social Security Fund (EFKA)</strong>, where I
+              held administrative responsibilities in the pension documentation
+              department.
+            </p>
+            <p>
+              I'm actively pursuing postgraduate study and career opportunities
+              in risk, banking, and financial analysis. Greek is my mother
+              tongue; my English is certified at C2 level (IELTS 8.5 / 9.0,
+              June 2025), and I have an intermediate command of German (B1).
+            </p>
+
+            <!-- Quick-stat cards -->
+            <div class="about-stats">
+              <div class="stat-card">
+                <span class="stat-number">1.5+</span>
+                <span class="stat-label">Years Experience</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">21</span>
+                <span class="stat-label">Audit Clients</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Languages</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- =============================================
+         SKILLS SECTION
+    ============================================= -->
     <section id="skills" class="section section-alt fade-in">
       <div class="container">
         <h2 class="section-title">Skills &amp; Tools</h2>
-        <p class="section-subtitle">A blend of financial acumen and technical proficiency</p>
+        <p class="section-subtitle">
+          A finance-first skill set backed by real audit and reporting experience
+        </p>
+
         <div class="skills-grid">
+
+          <!-- Skill Category: Finance -->
           <div class="skill-category">
-            <div class="skill-category-icon">📊</div>
+            <div class="skill-category-icon" aria-hidden="true">ð</div>
             <h3 class="skill-category-title">Finance</h3>
             <ul class="skill-list">
-              <li class="skill-item"><span class="skill-name">Financial Modelling</span><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></li>
-              <li class="skill-item"><span class="skill-name">Valuation &amp; DCF</span><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></li>
-              <li class="skill-item"><span class="skill-name">Risk Analysis</span><div class="skill-bar"><div class="skill-fill" data-width="80"></div></div></li>
-              <li class="skill-item"><span class="skill-name">Portfolio Management</span><div class="skill-bar"><div class="skill-fill" data-width="75"></div></div></li>
+              <li class="skill-item">
+                <span class="skill-name">Financial Analysis</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
+                  <div class="skill-fill" data-width="88"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Risk Management</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="82">
+                  <div class="skill-fill" data-width="82"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Portfolio &amp; Fixed Income</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="78">
+                  <div class="skill-fill" data-width="78"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Financial Reporting</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="80">
+                  <div class="skill-fill" data-width="80"></div>
+                </div>
+              </li>
             </ul>
           </div>
+
+          <!-- Skill Category: Audit & Compliance -->
           <div class="skill-category">
-            <div class="skill-category-icon">💻</div>
-            <h3 class="skill-category-title">Technology</h3>
+            <div class="skill-category-icon" aria-hidden="true">ð</div>
+            <h3 class="skill-category-title">Audit &amp; Compliance</h3>
             <ul class="skill-list">
-              <li class="skill-item"><span class="skill-name">HTML &amp; CSS</span><div class="skill-bar"><div class="skill-fill" data-width="92"></div></div></li>
-              <li class="skill-item"><span class="skill-name">JavaScript</span><div class="skill-bar"><div class="skill-fill" data-width="80"></div></div></li>
-              <li class="skill-item"><span class="skill-name">Python &amp; Pandas</span><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></li>
-              <li class="skill-item"><span class="skill-name">SQL</span><div class="skill-bar"><div class="skill-fill" data-width="78"></div></div></li>
+              <li class="skill-item">
+                <span class="skill-name">Internal Audit</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="85">
+                  <div class="skill-fill" data-width="85"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Audit Documentation</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="90">
+                  <div class="skill-fill" data-width="90"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Risk &amp; Compliance Reporting</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="83">
+                  <div class="skill-fill" data-width="83"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Stakeholder Coordination</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="80">
+                  <div class="skill-fill" data-width="80"></div>
+                </div>
+              </li>
             </ul>
           </div>
+
+          <!-- Skill Category: Tools -->
           <div class="skill-category">
-            <div class="skill-category-icon">🛠</div>
+            <div class="skill-category-icon" aria-hidden="true">ð </div>
             <h3 class="skill-category-title">Tools</h3>
             <ul class="skill-list">
-              <li class="skill-item"><span class="skill-name">Excel &amp; Power BI</span><div class="skill-bar"><div class="skill-fill" data-width="95"></div></div></li>
-              <li class="skill-item"><span class="skill-name">Bloomberg Terminal</span><div class="skill-bar"><div class="skill-fill" data-width="70"></div></div></li>
-              <li class="skill-item"><span class="skill-name">Git &amp; GitHub</span><div class="skill-bar"><div class="skill-fill" data-width="82"></div></div></li>
-              <li class="skill-item"><span class="skill-name">Tableau</span><div class="skill-bar"><div class="skill-fill" data-width="75"></div></div></li>
+              <li class="skill-item">
+                <span class="skill-name">Microsoft Excel</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="90">
+                  <div class="skill-fill" data-width="90"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Word &amp; PowerPoint</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="92">
+                  <div class="skill-fill" data-width="92"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Research &amp; Report Writing</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="88">
+                  <div class="skill-fill" data-width="88"></div>
+                </div>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">HTML, CSS &amp; JavaScript</span>
+                <div class="skill-bar" role="progressbar" aria-valuenow="60">
+                  <div class="skill-fill" data-width="60"></div>
+                </div>
+              </li>
             </ul>
           </div>
+
         </div>
       </div>
     </section>
 
+    <!-- =============================================
+         PROJECTS SECTION
+         Filter tabs: All | Finance | Analysis | Web
+    ============================================= -->
     <section id="projects" class="section fade-in">
       <div class="container">
         <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">Selected work across finance, data, and web development</p>
-        <div class="filter-tabs">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="finance">Finance</button>
-          <button class="filter-btn" data-filter="data">Data</button>
-          <button class="filter-btn" data-filter="web">Web</button>
+        <p class="section-subtitle">
+          Academic and personal work across finance, analysis, and web development
+        </p>
+
+        <!-- Filter tabs â JS handles active state and card filtering -->
+        <div class="filter-tabs" role="tablist" aria-label="Filter projects">
+          <button class="filter-btn active" data-filter="all"      role="tab" aria-selected="true">All</button>
+          <button class="filter-btn"         data-filter="finance"  role="tab" aria-selected="false">Finance</button>
+          <button class="filter-btn"         data-filter="analysis" role="tab" aria-selected="false">Analysis</button>
+          <button class="filter-btn"         data-filter="web"      role="tab" aria-selected="false">Web</button>
         </div>
+
+        <!-- Project cards -->
         <div class="projects-grid" id="projects-grid">
-          <article class="project-card" data-category="finance"><div class="project-card-header"><span class="project-tag">Finance</span><a href="https://github.com/vpappas" class="project-icon-link" target="_blank" rel="noopener noreferrer">&lt;/&gt;</a></div><h3 class="project-title">Stock Portfolio Optimiser</h3><p class="project-description">Python-based Markowitz mean-variance optimisation tool.</p><div class="project-tech"><span class="tech-chip">Python</span><span class="tech-chip">NumPy</span><span class="tech-chip">yfinance</span></div></article>
-          <article class="project-card" data-category="data"><div class="project-card-header"><span class="project-tag">Data</span><a href="https://github.com/vpappas" class="project-icon-link" target="_blank" rel="noopener noreferrer">&lt;/&gt;</a></div><h3 class="project-title">Macroeconomic Dashboard</h3><p class="project-description">Interactive Power BI dashboard visualising GDP, inflation, and unemployment.</p><div class="project-tech"><span class="tech-chip">Power BI</span><span class="tech-chip">SQL</span></div></article>
-          <article class="project-card" data-category="web"><div class="project-card-header"><span class="project-tag">Web</span><a href="https://github.com/vpappas" class="project-icon-link" target="_blank" rel="noopener noreferrer">&lt;/&gt;</a></div><h3 class="project-title">Expense Tracker App</h3><p class="project-description">Responsive single-page web app for personal budgeting.</p><div class="project-tech"><span class="tech-chip">HTML</span><span class="tech-chip">CSS</span><span class="tech-chip">JavaScript</span></div></article>
-          <article class="project-card" data-category="finance"><div class="project-card-header"><span class="project-tag">Finance</span><a href="https://github.com/vpappas" class="project-icon-link" target="_blank" rel="noopener noreferrer">&lt;/&gt;</a></div><h3 class="project-title">DCF Valuation Model</h3><p class="project-description">Fully dynamic Excel-based DCF model with sensitivity analysis and scenario toggles.</p><div class="project-tech"><span class="tech-chip">Excel</span><span class="tech-chip">VBA</span></div></article>
-          <article class="project-card" data-category="data"><div class="project-card-header"><span class="project-tag">Data</span><a href="https://github.com/vpappas" class="project-icon-link" target="_blank" rel="noopener noreferrer">&lt;/&gt;</a></div><h3 class="project-title">Credit Risk Predictor</h3><p class="project-description">Logistic regression and random forest models to predict loan default.</p><div class="project-tech"><span class="tech-chip">Python</span><span class="tech-chip">scikit-learn</span></div></article>
-          <article class="project-card" data-category="web"><div class="project-card-header"><span class="project-tag">Web</span><a href="https://github.com/vpappas" class="project-icon-link" target="_blank" rel="noopener noreferrer">&lt;/&gt;</a></div><h3 class="project-title">FinNews Aggregator</h3><p class="project-description">Lightweight news aggregator pulling headlines from finance RSS feeds.</p><div class="project-tech"><span class="tech-chip">JavaScript</span><span class="tech-chip">RSS API</span></div></article>
+
+          <!-- Project 1: Combined BSc Research Projects -->
+          <article class="project-card" data-category="finance">
+            <div class="project-card-header">
+              <span class="project-tag">Finance</span>
+            </div>
+            <h3 class="project-title">BSc Research Projects â University of Piraeus</h3>
+            <p class="project-description">
+              A series of research assignments completed during my Bachelor's
+              degree in Finance &amp; Accounting, covering four key areas:
+              <strong>Fintech &amp; Asset Management</strong> (robo-advisory,
+              blockchain, neobanks, and digital payments);
+              <strong>Financial System &amp; Banking Analysis</strong> using
+              FRED macro-financial indicators (money supply, CPI, Treasury
+              rates, credit spreads);
+              <strong>Behavioural Finance</strong> (investor biases, market
+              psychology, and commodity-price dynamics); and
+              <strong>Mergers &amp; Acquisitions</strong> (deal rationale,
+              DCF valuation, synergy estimates, and post-merger integration).
+            </p>
+            <div class="project-tech">
+              <span class="tech-chip">Financial Analysis</span>
+              <span class="tech-chip">FinTech</span>
+              <span class="tech-chip">Macroeconomics</span>
+              <span class="tech-chip">M&amp;A</span>
+              <span class="tech-chip">Behavioural Finance</span>
+              <span class="tech-chip">Excel</span>
+            </div>
+          </article>
+
+          <!-- Project 2: Portfolio Website -->
+          <article class="project-card" data-category="web">
+            <div class="project-card-header">
+              <span class="project-tag">Web</span>
+            </div>
+            <h3 class="project-title">Personal Portfolio Website</h3>
+            <p class="project-description">
+              Designed and built this responsive portfolio website from scratch
+              using HTML, CSS, and JavaScript â no frameworks. Features a smart
+              sticky navbar, scroll-triggered fade animations, a filterable
+              project grid, and client-side form validation.
+            </p>
+            <div class="project-tech">
+              <span class="tech-chip">HTML</span>
+              <span class="tech-chip">CSS</span>
+              <span class="tech-chip">JavaScript</span>
+              <span class="tech-chip">Responsive Design</span>
+            </div>
+          </article>
+
+          <!-- Project 3: Audit work -->
+          <article class="project-card" data-category="analysis">
+            <div class="project-card-header">
+              <span class="project-tag">Analysis</span>
+            </div>
+            <h3 class="project-title">Public Hospital Audit Portfolio</h3>
+            <p class="project-description">
+              As an Internal Auditor at Public Audit Services, I managed a
+              portfolio of 21 public hospital clients, completing on-site
+              audit work for 14. Deliverables included annual audit reports,
+              internal operating regulations, codes of ethics, annual planning
+              documents, and evaluation templates.
+            </p>
+            <div class="project-tech">
+              <span class="tech-chip">Internal Audit</span>
+              <span class="tech-chip">Public Sector</span>
+              <span class="tech-chip">Documentation</span>
+              <span class="tech-chip">Compliance</span>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
 
+    <!-- =============================================
+         EXPERIENCE SECTION
+    ============================================= -->
     <section id="experience" class="section section-alt fade-in">
       <div class="container">
         <h2 class="section-title">Work Experience</h2>
+
         <div class="timeline">
-          <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><div class="timeline-header"><h3 class="timeline-role">Junior Financial Analyst</h3><span class="timeline-date">Jan 2024 – Present</span></div><p class="timeline-company">Alpha Capital Group · Athens, Greece</p><ul class="timeline-bullets"><li>Built 15+ financial models for equity research on Greek and European mid-cap stocks</li><li>Automated weekly reporting in Python, reducing preparation time by 60%</li><li>Contributed to two M&amp;A due diligence processes</li></ul></div></div>
-          <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><div class="timeline-header"><h3 class="timeline-role">Finance Intern</h3><span class="timeline-date">Jun 2023 – Dec 2023</span></div><p class="timeline-company">National Bank of Greece · Athens</p><ul class="timeline-bullets"><li>Supported treasury desk with daily liquidity reporting and FX reconciliation</li><li>Developed a VBA macro saving 8 hours of monthly reporting</li><li>Completed internal credit risk training with distinction</li></ul></div></div>
-          <div class="timeline-item"><div class="timeline-marker"></div><div class="timeline-content"><div class="timeline-header"><h3 class="timeline-role">Web Development Freelancer</h3><span class="timeline-date">Sep 2021 – May 2023</span></div><p class="timeline-company">Self-Employed – Remote</p><ul class="timeline-bullets"><li>Designed responsive websites for 8 small businesses</li><li>Delivered projects on time with a 5-star client rating</li></ul></div></div>
+
+          <!-- Job 1: Internal Auditor -->
+          <div class="timeline-item">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3 class="timeline-role">Internal Auditor</h3>
+                <span class="timeline-date">Jan 2026 â Apr 2026</span>
+              </div>
+              <p class="timeline-company">Public Audit Services Â· Greece</p>
+              <ul class="timeline-bullets">
+                <li>
+                  Conducted internal audits for public hospitals across an
+                  assigned portfolio of 21 clients, completing on-site audit
+                  work for 14 hospitals.
+                </li>
+                <li>
+                  Prepared internal audit documentation and deliverables,
+                  including annual audit reports, internal operating regulations,
+                  codes of ethics, and evaluation templates.
+                </li>
+                <li>
+                  Coordinated with hospital senior management, internal audit
+                  unit heads, and departmental supervisors to gather information
+                  and ensure timely delivery.
+                </li>
+                <li>
+                  Supported invoice preparation and verification to ensure
+                  timely and accurate billing.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Job 2: Military Service at EFKA -->
+          <div class="timeline-item">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3 class="timeline-role">Military Service â Administrative Duties</h3>
+                <span class="timeline-date">Oct 2024 â Sep 2025</span>
+              </div>
+              <p class="timeline-company">Unified Social Security Fund (EFKA) Â· Athens, Greece &nbsp;Â·&nbsp; <em>Compulsory Military Service</em></p>
+              <ul class="timeline-bullets">
+                <li>
+                  Registered and verified retirement documentation in the
+                  e-EFKA system for military personnel discharged during
+                  2024â2025.
+                </li>
+                <li>
+                  Supported the issuance and amendment of pension acts and
+                  financial settlements for retirees.
+                </li>
+                <li>
+                  Processed incoming and outgoing correspondence; managed
+                  filing and dispatch of pension transfer documents.
+                </li>
+                <li>
+                  Operated in a high-responsibility public-sector environment
+                  requiring precision, administrative control, and strict
+                  deadline adherence.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Job 3: Accounting Intern -->
+          <div class="timeline-item">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3 class="timeline-role">Accounting Intern</h3>
+                <span class="timeline-date">Jul 2024 â Aug 2024</span>
+              </div>
+              <p class="timeline-company">Pnevmatikakis Winery S.A. Â· Crete, Greece</p>
+              <ul class="timeline-bullets">
+                <li>
+                  Supported month-end closing procedures and timely financial
+                  reporting.
+                </li>
+                <li>
+                  Identified and resolved discrepancies in financial records
+                  to maintain reporting accuracy.
+                </li>
+                <li>
+                  Communicated with vendors and clients to support payment
+                  issue resolution and timely invoice processing.
+                </li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
+    <!-- =============================================
+         EDUCATION SECTION
+    ============================================= -->
     <section id="education" class="section fade-in">
       <div class="container">
-        <h2 class="section-title">Education &amp; Certifications</h2>
+        <h2 class="section-title">Education &amp; Qualifications</h2>
+
         <div class="edu-grid">
-          <div class="edu-card"><div class="edu-icon">🎓</div><div class="edu-body"><h3 class="edu-degree">BSc Information Technology &#122; Finance Track</h3><p class="edu-institution">Athens University of Economics and Business</p><p class="edu-date">Graduated: June 2023 | GPA: 8.6 / 10</p><p class="edu-detail">Thesis: <em>"Machine Learning Applications in Credit Scoring: A Comparative Study"</em></p></div></div>
-          <div class="edu-card"><div class="edu-icon">📜</div><div class="edu-body"><h3 class="edu-degree">Certifications</h3><ul class="cert-list"><li><strong>CFA Level I</strong> &#150; CFA Institute<span class="cert-year">2024</span></li><li><strong>Google Data Analytics</strong> &#150; Google / Coursera<span class="cert-year">2023</span></li><li><strong>Python for Finance</strong> &#150; Coursera<span class="cert-year">2023</span></li><li><strong>Power BI Desktop Specialist</strong> &#150; Microsoft<span class="cert-year">2022</span></li><li><strong>Bloomberg Market Concepts</strong> &#150; Bloomberg<span class="cert-year">2022</span></li></ul></div></div>
+
+          <!-- Degree -->
+          <div class="edu-card">
+            <div class="edu-icon" aria-hidden="true">ð</div>
+            <div class="edu-body">
+              <h3 class="edu-degree">
+                BSc Business Administration â Finance &amp; Accounting
+              </h3>
+              <p class="edu-institution">University of Piraeus</p>
+              <p class="edu-date">
+                2020 â 2024 &nbsp;Â·&nbsp; Final Grade: 7.98 / 10 &nbsp;Â·&nbsp; 240 ECTS (EQF Level 6)
+              </p>
+              <p class="edu-detail">
+                <strong>Relevant coursework:</strong> Fixed Income Products,
+                Mergers &amp; Acquisitions, Financial System &amp; Bank
+                Management, Risk Management, Mutual Funds, Portfolio
+                Management, Behavioural Finance, Quantitative Methods
+              </p>
+            </div>
+          </div>
+
+          <!-- IST College iMBA -->
+          <div class="edu-card">
+            <div class="edu-icon" aria-hidden="true">ð</div>
+            <div class="edu-body">
+              <h3 class="edu-degree">
+                International MBA (iMBA) â Business Administration
+              </h3>
+              <p class="edu-institution">IST College â Independent Studies of Science &amp; Technology</p>
+              <p class="edu-date">Oct 2025 â Oct 2026 &nbsp;Â·&nbsp; In Progress</p>
+            </div>
+          </div>
+
+          <!-- Languages & Certifications -->
+          <div class="edu-card">
+            <div class="edu-icon" aria-hidden="true">ð</div>
+            <div class="edu-body">
+              <h3 class="edu-degree">Languages &amp; Certifications</h3>
+              <ul class="cert-list">
+                <li>
+                  <strong>Greek</strong> â Mother Tongue
+                  <span class="cert-year">ð¬ð·</span>
+                </li>
+                <li>
+                  <strong>English â C2</strong> Â· IELTS 8.5 / 9.0
+                  <span class="cert-year">Jun 2025</span>
+                </li>
+                <li>
+                  <strong>German â B1</strong>
+                  <span class="cert-year">ð©ðª</span>
+                </li>
+                <li>
+                  <strong>AI &amp; ChatGPT: Tools and Practical Applications</strong>
+                  Â· IST College &nbsp;Â·&nbsp; Credential ID 5076
+                  <span class="cert-year">Dec 2025</span>
+                </li>
+                <li>
+                  <strong>Claude 101</strong> Â· Anthropic Academy
+                  <span class="cert-year">Apr 2026</span>
+                </li>
+                <li>
+                  <strong>Regular Blood Donor</strong>
+                  <span class="cert-year">Feb 2025â</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
+    <!-- =============================================
+         CONTACT SECTION
+    ============================================= -->
     <section id="contact" class="section section-alt fade-in">
       <div class="container">
         <h2 class="section-title">Get in Touch</h2>
-        <p class="section-subtitle">Open to opportunities in finance, FinTech, and data-driven roles</p>
+        <p class="section-subtitle">
+          Open to roles and postgraduate opportunities in finance, risk,
+          and banking
+        </p>
+
         <div class="contact-grid">
+
+          <!-- Contact info -->
           <div class="contact-info">
-            <div class="contact-item"><span class="contact-icon">✉</span><a href="mailto:billy.pappas02@gmail.com">billy.pappas02@gmail.com</a></div>
-            <div class="contact-item"><span class="contact-icon">📍</span><span>Athens, Greece</span></div>
-            <div class="contact-item"><span class="contact-icon">🔗 </span><a href="https://linkedin.com/in/vpappas" target="_blank" rel="noopener noreferrer">linkedin.com/in/vpappas</a></div>
-            <div class="contact-item"><span class="contact-icon">💾</span><a href="https://github.com/vpappas" target="_blank" rel="noopener noreferrer">github.com/vpappas</a></div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">â</span>
+              <a href="mailto:billy.pappas02@gmail.com">billy.pappas02@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">ð</span>
+              <a href="tel:+306948791020">+30 694 879 1020</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">ð</span>
+              <span>Piraeus, Greece</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">ð</span>
+              <a
+                href="https://www.linkedin.com/in/vasileios-pappas-2122652a2"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                linkedin.com/in/vasileios-pappas-2122652a2
+              </a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">ð»</span>
+              <a
+                href="https://github.com/billypappas"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                github.com/billypappas
+              </a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon" aria-hidden="true">ð</span>
+              <a href="vasileios-pappas-cv.pdf" download>Download CV</a>
+            </div>
           </div>
+
+          <!-- Contact form â JS handles validation -->
           <form id="contact-form" class="contact-form" novalidate>
-            <div class="form-group"><label for="name">Name <span class="required">*</span></label><input type="text" id="name" name="name" placeholder="Your full name" /><span class="field-error" id="name-error"></span></div>
-            <div class="form-group"><label for="email">Email <span class="required">*</span></label><input type="email" id="email" name="email" placeholder="your@email.com" /><span class="field-error" id="email-error"></span></div>
-            <div class="form-group"><label for="subject">Subject</label><input type="text" id="subject" name="subject" placeholder="What's this about?" /></div>
-            <div class="form-group"><label for="message">Message <span class="required">*</span></label><textarea id="message" name="message" rows="5" placeholder="Your message..."></textarea><span class="field-error" id="message-error"></span></div>
-            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
-            <div id="form-feedback" class="form-feedback" role="alert"></div>
+            <div class="form-group">
+              <label for="name">Name <span class="required">*</span></label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your full name"
+                autocomplete="name"
+              />
+              <span class="field-error" id="name-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email <span class="required">*</span></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="your@email.com"
+                autocomplete="email"
+              />
+              <span class="field-error" id="email-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="What's this about?"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message <span class="required">*</span></label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Your message..."
+              ></textarea>
+              <span class="field-error" id="message-error" role="alert"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">
+              Send Message
+            </button>
+
+            <!-- Success / error feedback panel (shown by JS) -->
+            <div
+              id="form-feedback"
+              class="form-feedback"
+              role="alert"
+              aria-live="polite"
+            ></div>
           </form>
+
         </div>
       </div>
     </section>
 
+    <!-- =============================================
+         FOOTER
+    ============================================= -->
     <footer id="footer">
       <div class="container footer-inner">
-        <p class="footer-copy">&copy; <span id="footer-year"></span> Vasileios Pappas. Crafted with HTML, CSS &amp; JavaScript.</p>
-        <a href="#hero" class="back-to-top" aria-label="Back to top">↑</a>
+        <p class="footer-copy">
+          &copy; <span id="footer-year"></span> Vasileios Grigorios Pappas.
+          Built with HTML, CSS &amp; JavaScript.
+        </p>
+        <a href="#hero" class="back-to-top" aria-label="Back to top">â</a>
       </div>
     </footer>
 
+    <!-- JavaScript â loaded at end of body so the DOM is ready -->
     <script src="main.js"></script>
   </body>
 </html>
