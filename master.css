@@ -539,6 +539,18 @@ p {
   box-shadow: 0 12px 40px var(--color-shadow);
 }
 
+/* Real profile photo */
+.about-photo {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: var(--radius-lg);
+  border: 3px solid var(--color-gold);
+  box-shadow: 0 12px 40px var(--color-shadow);
+  display: block;
+}
+
 .about-text p {
   margin-bottom: var(--space-md);
 }
